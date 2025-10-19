@@ -5,7 +5,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  workflow_dispatch:    # allows you to run manually
+  workflow_dispatch:
 
 jobs:
   build:
@@ -26,6 +26,7 @@ jobs:
 
       - name: Build backend with Maven
         run: |
+          cd task3
           mvn -B -DskipTests clean package
 
       # ---------------------------
@@ -41,7 +42,6 @@ jobs:
           cd frontend
           npm install
           npm run build
-        continue-on-error: false
 
       # ---------------------------
       # Docker Build
@@ -50,6 +50,5 @@ jobs:
         run: |
           docker build -t kaiburr-task3-app:latest .
 
-      # Optional: list image
       - name: Verify Docker image
         run: docker images

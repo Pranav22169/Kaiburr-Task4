@@ -1,4 +1,3 @@
-import React from 'react';
 import { Modal, Form, Input, Button, message } from 'antd';
 import { api } from '../services/api';
 
@@ -53,3 +52,4 @@ export default function TaskForm({ visible, onClose, onCreated }: Props) {
     </Modal>
   );
 }
+

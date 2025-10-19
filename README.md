@@ -37,17 +37,7 @@ The multi-stage Dockerfile:
 
 ---
 
-## 📸 Screenshots
 
-| Step | Description | Screenshot |
-|------|--------------|-------------|
-| 1 | CI/CD workflow configuration (`ci.yml`) | ![CI Config](screenshots/01_ci_yaml.png) |
-| 2 | Workflow running | ![Workflow Running](screenshots/02_workflow_running.png) |
-| 3 | Workflow completed successfully | ![Workflow Success](screenshots/03_workflow_success.png) |
-| 4 | Docker image build step | ![Docker Build](screenshots/04_docker_build.png) |
-| 5 | Docker image verification step | ![Docker Verify](screenshots/05_docker_verify.png) |
-
----
 
 ## 🧑‍💻 Author
 **Pranav Biju Nair**  

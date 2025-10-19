@@ -1,4 +1,3 @@
-import React from 'react';
 import { Modal, Typography } from 'antd';
 
 type Props = {
@@ -22,3 +21,4 @@ export default function RunTaskModal({ visible, onClose, output }: Props) {
     </Modal>
   );
 }
+

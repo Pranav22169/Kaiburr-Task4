@@ -1,0 +1,55 @@
+name: Kaiburr Task 4 - CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:    # allows you to run manually
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # ---------------------------
+      # Backend (Spring Boot + Maven)
+      # ---------------------------
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Build backend with Maven
+        run: |
+          mvn -B -DskipTests clean package
+
+      # ---------------------------
+      # Frontend (React + Node.js)
+      # ---------------------------
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build frontend with npm
+        run: |
+          cd frontend
+          npm install
+          npm run build
+        continue-on-error: false
+
+      # ---------------------------
+      # Docker Build
+      # ---------------------------
+      - name: Build Docker image
+        run: |
+          docker build -t kaiburr-task3-app:latest .
+
+      # Optional: list image
+      - name: Verify Docker image
+        run: docker images

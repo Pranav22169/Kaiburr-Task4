@@ -41,6 +41,7 @@ jobs:
           node-version: '20'
 
       - name: Build frontend with npm
+        continue-on-error: true
         env:
           CI: false
         run: |

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Table, Spin, Typography } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { getAllTasks } from '../services/api';
@@ -51,3 +51,4 @@ const TaskTable: React.FC = () => {
 };
 
 export default TaskTable;
+

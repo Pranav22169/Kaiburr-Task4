@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # ---------------------------
+      # Checkout Code
+      # ---------------------------
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -38,10 +41,11 @@ jobs:
           node-version: '20'
 
       - name: Build frontend with npm
+        continue-on-error: true
         run: |
           cd frontend
           npm install
-          npm run build || echo "Frontend build completed with warnings"
+          npm run build
 
       # ---------------------------
       # Docker Build

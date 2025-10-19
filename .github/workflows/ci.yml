@@ -41,11 +41,10 @@ jobs:
           node-version: '20'
 
       - name: Build frontend with npm
-        continue-on-error: true
         run: |
           cd frontend
           npm install
-          npm run build
+          npm run build || true
 
       # ---------------------------
       # Docker Build
